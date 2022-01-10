@@ -68,9 +68,7 @@ namespace pierresroulette
 
                             var saplingsToKeep = forSale.Where(x => x is Item item && item.Name.EndsWith("Sapling")).ToList();
 
-                            if (saplingMinStock <= 0)
-                                break;
-                            else
+                            if (saplingMinStock > 0)
                                 KeepSaplings(rnd, saplingMinStock, saplingsToKeep);
 
                             var toRemove = forSale.Where(y => y is Item item && item.Name.EndsWith("Sapling") && !saplingsToKeep.Contains(item)).ToList();
